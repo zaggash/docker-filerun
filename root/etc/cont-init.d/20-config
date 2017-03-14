@@ -20,7 +20,7 @@ sed -i "s#;date.timezone =.*#date.timezone = $TZ#g" /etc/php/7.0/fpm/php.ini
 #fix php-fpm log location
 sed -i "s#error_log = /var/log/php7.0-fpm.log#error_log = /config/log/php/error.log#g" /etc/php/7.0/fpm/php-fpm.conf
 #fix php-fpm user
-sed -i "s#owner = www-data.*#owner = abc#g" /etc/php/7.0/fpm/pool.d/www.conf
+sed -i "s#user = www-data.*#user = abc#g" /etc/php/7.0/fpm/pool.d/www.conf
 sed -i "s#group = www-data.*#group = abc#g" /etc/php/7.0/fpm/pool.d/www.conf
 
 
