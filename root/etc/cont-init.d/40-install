@@ -1,0 +1,13 @@
+#!/usr/bin/with-contenv bash
+
+# create folders
+mkdir -p \
+	"${FILERUN_PATH}"
+
+# install app
+if [ ! -e "${FILERUN_PATH}/index.php" ]; then
+	curl -o /tmp/filerun.zip -L https://www.filerun.com/download-latest && \
+	unzip /tmp/filerun.zip -d "${FILERUN_PATH}" && \
+	rm -f /tmp/filerun.zip && \
+	chown root.root -R "${FILERUN_PATH}"
+fi
