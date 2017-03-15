@@ -11,3 +11,5 @@ if [ ! -e "${FILERUN_PATH}/index.php" ]; then
 	rm -f /tmp/filerun.zip && \
 	chown root.root -R "${FILERUN_PATH}"
 fi
+
+chown -R abc.root "${FILERUN_PATH}/system/data
