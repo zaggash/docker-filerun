@@ -12,4 +12,4 @@ if [ ! -e "${FILERUN_PATH}/index.php" ]; then
 	chown root.root -R "${FILERUN_PATH}"
 fi
 
-chown -R abc.root "${FILERUN_PATH}/system/data
+chown -R abc.root "${FILERUN_PATH}/system/data"
