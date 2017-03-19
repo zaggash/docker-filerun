@@ -23,6 +23,9 @@ sed -i "s#error_log = /var/log/php7.0-fpm.log#error_log = /config/log/php/error.
 sed -i "s#user = www-data.*#user = abc#g" /etc/php/7.0/fpm/pool.d/www.conf
 sed -i "s#group = www-data.*#group = abc#g" /etc/php/7.0/fpm/pool.d/www.conf
 
+#filerun config php
+cp /defaults/filerun.ini /etc/php/7.0/fpm/conf.d
+
 
 # permissions
 chown -R abc:abc \
