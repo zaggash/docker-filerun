@@ -25,6 +25,7 @@ sed -i "s#group = www-data.*#group = abc#g" /etc/php/7.0/fpm/pool.d/www.conf
 
 #filerun config php
 cp /defaults/filerun.ini /etc/php/7.0/fpm/conf.d
+sed -i "s#ROOT_URL#$ROOT_URL#g" /defaults/config.php
 
 
 # permissions
