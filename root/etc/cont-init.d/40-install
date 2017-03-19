@@ -9,6 +9,7 @@ if [ ! -e "${FILERUN_PATH}/index.php" ]; then
 	curl -o /tmp/filerun.zip -L https://www.filerun.com/download-latest && \
 	unzip /tmp/filerun.zip -d "${FILERUN_PATH}" && \
 	rm -f /tmp/filerun.zip && \
+	cp /defaults/config.php "${FILERUN_PATH}/customizables/"
 	chown root.root -R "${FILERUN_PATH}"
 fi
 
