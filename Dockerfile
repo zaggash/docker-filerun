@@ -24,6 +24,7 @@ RUN \
 		unzip \
 		mysql-client \
 		graphicsmagick \
+		imagemagick \
 		ffmpeg \
 		php7.0 \
 		php7.0-fpm \
