@@ -15,16 +15,16 @@ mkdir -p \
 	cp /defaults/index.html /config/www/index.html
 
 # fix timezone in php.ini
-sed -i "s#;date.timezone =.*#date.timezone = $TZ#g" /etc/php/7.0/cli/php.ini
-sed -i "s#;date.timezone =.*#date.timezone = $TZ#g" /etc/php/7.0/fpm/php.ini
+sed -i "s#;date.timezone =.*#date.timezone = $TZ#g" /etc/php/7.2/cli/php.ini
+sed -i "s#;date.timezone =.*#date.timezone = $TZ#g" /etc/php/7.2/fpm/php.ini
 #fix php-fpm log location
-sed -i "s#error_log = /var/log/php7.0-fpm.log#error_log = /config/log/php/error.log#g" /etc/php/7.0/fpm/php-fpm.conf
+sed -i "s#error_log = /var/log/php7.2-fpm.log#error_log = /config/log/php/error.log#g" /etc/php/7.2/fpm/php-fpm.conf
 #fix php-fpm user
-sed -i "s#user = www-data.*#user = abc#g" /etc/php/7.0/fpm/pool.d/www.conf
-sed -i "s#group = www-data.*#group = abc#g" /etc/php/7.0/fpm/pool.d/www.conf
+sed -i "s#user = www-data.*#user = abc#g" /etc/php/7.2/fpm/pool.d/www.conf
+sed -i "s#group = www-data.*#group = abc#g" /etc/php/7.2/fpm/pool.d/www.conf
 
 #filerun config php
-cp /defaults/filerun.ini /etc/php/7.0/fpm/conf.d
+cp /defaults/filerun.ini /etc/php/7.2/fpm/conf.d
 sed -i "s#ROOT_URL#$ROOT_URL#g" /defaults/config.php
 
 

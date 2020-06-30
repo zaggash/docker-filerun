@@ -1,2 +1,2 @@
 #!/usr/bin/with-contenv bash
-exec /usr/sbin/php-fpm7.0 -F
+exec /usr/sbin/php-fpm7.2 -F

@@ -1,14 +1,9 @@
-FROM lsiobase/ubuntu:xenial
+FROM lsiobase/ubuntu:bionic
 MAINTAINER zaggash
 
 # environment variables
 ARG DEBIAN_FRONTEND="noninteractive"
 ENV FILERUN_PATH="/config/www/filerun"
-
-# set version label
-ARG BUILD_DATE
-ARG VERSION
-LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 
 # update apt and install packages
 RUN \
@@ -18,7 +13,6 @@ RUN \
 		logrotate \
 		ca-certificates \
 		git \
-		logrotate \
 		nginx \
 		openssl \
 		unzip \
@@ -26,28 +20,28 @@ RUN \
 		graphicsmagick \
 		imagemagick \
 		ffmpeg \
-		php7.0 \
-		php7.0-fpm \
-		php7.0-common \
-		php7.0-curl \
-		php7.0-mbstring \
-		php7.0-mcrypt \
-		php7.0-mysql \
- 		php7.0-exif \
-		php7.0-xml \
-		php7.0-zip \
-		php7.0-gd \
-		php7.0-opcache && \
+		php7.2 \
+		php7.2-fpm \
+		php7.2-common \
+		php7.2-curl \
+		php7.2-mbstring \
+		php7.2-mysql \
+		php7.2-xml \
+		php7.2-zip \
+		php7.2-gd \
+		php7.2-imagick \
+		php7.2-ldap \
+		php7.2-opcache && \
 
 	apt-get install -y \
-		php7.0-dev && \
+		php7.2-dev && \
 
 # install IonCube
-	curl -O http://downloads3.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz && \
+	curl -O https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz && \
 	tar xvfz ioncube_loaders_lin_x86-64.tar.gz && \
-	PHP_EXT_DIR=$(php-config7.0 --extension-dir) && \
-	cp "ioncube/ioncube_loader_lin_7.0.so" $PHP_EXT_DIR && \
-	echo "zend_extension=ioncube_loader_lin_7.0.so" >> /etc/php/7.0/fpm/conf.d/00_ioncube_loader_lin_7.0.ini && \
+	PHP_EXT_DIR=$(php-config --extension-dir) && \
+	cp "ioncube/ioncube_loader_lin_7.2.so" $PHP_EXT_DIR && \
+	echo "zend_extension=ioncube_loader_lin_7.2.so" >> /etc/php/7.2/fpm/conf.d/00_ioncube_loader.ini && \
 	rm -rf ioncube ioncube_loaders_lin_x86-64.tar.gz && \
 
 # configure nginx
@@ -57,13 +51,13 @@ RUN \
 
 # cleanup
 	apt-get autoremove --purge -y \
-		php7.0-dev && \
+		php7.2-dev && \
 	rm -rf \
 		/tmp/* \
 		/var/lib/apt/lists/* \
 		/var/tmp/* \
 		/usr/lib/x86_64-linux-gnu/libfakeroot/ \
-		/etc/logrotate.d/php7.0-fpm \
+		/etc/logrotate.d/php7.2-fpm \
 		/etc/logrotate.d/nginx
 
 # add local files
