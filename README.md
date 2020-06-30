@@ -1,8 +1,12 @@
+![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/zaggash/docker-filerun?label=build&logo=docker&style=for-the-badge)
+![Docker Image Version (latest by date)](https://img.shields.io/docker/v/zaggash/docker-filerun?logo=docker&sort=date&style=for-the-badge)
+![MicroBadger Layers](https://img.shields.io/microbadger/layers/zaggash/docker-filerun?logo=docker&style=for-the-badge)
+![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/zaggash/docker-filerun?label=size&logo=docker&style=for-the-badge)
+![Docker Pulls](https://img.shields.io/docker/pulls/zaggash/docker-filerun?label=pulls&logo=docker&style=for-the-badge)
+
 Based on linuxserver.io baseimage but NOT SUPPORTED by them.
 
 # zaggash/docker-filerun
-[![](https://images.microbadger.com/badges/image/zaggash/docker-filerun.svg)](https://microbadger.com/images/zaggash/docker-filerun "Get your own image badge on microbadger.com")
-[hub]: https://hub.docker.com/r/zaggash/docker-filerun/
 
 FileRun File Manager: access your files anywhere through self-hosted secure cloud storage, file backup and sharing for your photos, videos, files and more. [Filerun](http://www.filerun.com/)
 
@@ -11,9 +15,9 @@ FileRun File Manager: access your files anywhere through self-hosted secure clou
 ## Usage
 
 ```
-docker create --name=filerun \
+docker run -d --name=filerun \
 -v <path to data>:/config \
--e TZ \
+-e TZ=Europe/Paris \
 -e PGID=<gid> -e PUID=<uid> \
 -p 80:80 \
 zaggash/docker-filerun
@@ -36,7 +40,6 @@ Sometimes when using data volumes (`-v` flags) permissions issues can arise betw
 ## Setting up the application 
 
 Webui is on port 80
-
 
 ## Info
 
